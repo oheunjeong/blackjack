@@ -29,8 +29,12 @@ int main(int argc, char *argv[]) {
 			if (n_user>5){
 				printf("Too many palyers!\n");
 			}
-		
+			else if(n_user<6){
+				printf("-->card is mixed and put into the tray\n");
+			}	
 	}while(n_user>5);
+	
+	
 	
 
 	
