@@ -26,8 +26,13 @@ int main(int argc, char *argv[]) {
 	do{
 		printf("input the number of players(MAX 5): ");
 		scanf("%d",&n_user);
+			if (n_user>5){
+				printf("Too many palyers!\n");
+			}
 		
 	}while(n_user>5);
+	
+
 	
 	
 	
