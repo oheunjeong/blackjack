@@ -86,10 +86,14 @@ int main(void)
 	return 0;
 }
 
-int ROUND; // 몇 ROUND인지  표시.	printf("----------------------\n")
-		printf("---------ROUND-------------\n");
-		printf("----------------------\n");
+// 몇  ROUND 인지 표시하기. 
+for (int ROUND=0;ROUND<100000000;ROUND++)
+	{
 		printf("----------------------\n") ;
+		printf("---------ROUND%d-------------\n",ROUND);
+		printf("----------------------\n");
+	} 
+
 		
 //4.player 별로 배팅하기
 int betDollar(int bankroll,int bettingmoney); //bankroll:배팅가능한 금액 및 남은 금액, bettingmoney:배팅 금액.
