@@ -19,13 +19,13 @@ int main(void){
 	int cardSum[N_MAX_USER];					//sum of the cards
 	int bet[N_MAX_USER];						//current betting 
 	int gameEnd = 0; 							//game end flag
-	int dollar[N_MAX_USER]; //현재 보유 금액. 
-	int n_user;                             	    // Player 수. 
+	int bankroll[N_MAX_USER]; //현재 보유 금액. 
+	int n_user;               // Player 수. 
 	int bettingmoney=0; //배팅금액
 	int player[21]={NULL};//player 가 추가한 카드.
-	int playsum =0;// 플레이어 카드 합
+	int sum_player =0;// 플레이어 카드 합
 	int deal[21]={NULL}; // 딜러가 추가한 카드
-	int dealsum=0;//딜러가 추가한 카드
+	int sum_dealer=0;//딜러의 카드 합. 
 	int i=2,j=2,k=0,n=0; // for문에서 사용할 변수 초기화
 	int Ace=0; //카드 A를 1로 할지 11로 할지 결정.
 	int Card[52]={
@@ -56,9 +56,10 @@ int main(int argc, char *argv[]) {
 				printf("-->card is mixed and put into the tray\n");
 			}	
 	}while(n_user>5);
+//2. dollar 나눠주기.
 	
 
-//2. 카드를 섞고 넣기. 
+//3. 카드를 섞고 넣기. 
 int CardTray[N_CARDSET*N_CARD];
 int cardIndex = 0;			
 int mixCardTray(void){int N_CARD[}; //카드 넣기. 
@@ -87,7 +88,7 @@ int ShuffleCard(int N_CARD[]) //카드를 섞기.
 //플레이어와 딜러 카드 초기화.
 
 int player[N_MAX_CARDHOLD]={0};
-int computer[N_MAX_CARDHOLD]={0};
+int dealer[N_MAX_CARDHOLD]={0};
 
 //받은 카드 숫자. 
 int cardnumber[N_MAX_CARDNUM]; 
@@ -97,6 +98,7 @@ int ROUND // 몇 ROUND인지  표시.	printf("----------------------\n")
 		printf("---------ROUND-------------\n")
 		printf("----------------------\n")
 		printf("----------------------\n") 
+		
 //4.player 별로 배팅하기
 int betDollar(int bankroll){
 	int bettingmoney;//  배팅금액.
@@ -113,6 +115,9 @@ int betDollar(int bankroll){
 	return bettingmoney;
 }
 
+ //5. 두장씩 카드를 나눠준다.
+int offerCards{int player[N_MAX_CARDHOLD]={0};
+int dealer[N_MAX_CARDHOLD]={0};
 deal[0]= rand()%(52); // 딜러의 두번째 카드.
 do{
 	deal[1]=rand()%(52);
@@ -122,4 +127,15 @@ do{
 	play[0]=rand%(52);
 } while (play[0]==deal[0]||play[0]==deal[1]);;// player 의 첫번째 카드. 
 
+do {
+	play[1]=rand()%(52);
+} while (play[1] == deal[0] || play[0] == deal[1] || play[1] == play[0]); //다른 카드와 중복되지 않을 떄까지.
 
+sum_dealer = Card[deal[0]] + Card[deal[1]]; //딜러의 카드 합
+sum_player = Card[play[0]] + Card[play[1]]; //player의 카드 합
+printf("dealer의 카드:X %d\n",Card[deal[1]]); //딜러의 첫번째 숫자는 X로 표시. 
+printf("player의 카드:X %d\n",Card[play[0]],Card[play[1]]);
+
+//player가 카드를 
+ 
+ 
